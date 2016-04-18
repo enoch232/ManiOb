@@ -1,6 +1,6 @@
 function _(id) {
    var about = {
-      Version: 0.1,
+      Version: 0.11,
       Author: "Enoch Ko",
       Created: "Monday, April 18th 2016",
       Updated: "Monday, April 18th 2016"
@@ -11,6 +11,7 @@ function _(id) {
          return new _(id);
       }
       this.e = document.getElementById(id);
+      this.s = this.e.style;
       return this;
    } else {
       return about;
@@ -18,38 +19,39 @@ function _(id) {
 };
  
 _.prototype = {
-   hide: function () {
-      this.e.style.display = 'none';
+	color: function(color){
+		this.s.color = color;
+		return this;
+	},
+	hide: function(){
+		this.s.display = 'none';
+		return this;
+	}
+	show: function(){
+		this.s.display = 'inherit';
+		return this;
+	},
+	bgcolor: function (color) {
+      this.s.background = color;
       return this;
-   },
+    },
  
-   show: function () {
-      this.e.style.display = 'inherit';
-      return this;
-   },
- 
-   background_color: function (color) {
-      this.e.style.background = color;
-      return this;
-   },
- 
-   val: function (newval) {
+    val: function (newval) {
       this.e.value = newval;
       return this;
-   },
+    },
+    showtoggle: function () {
+       if (this.e.style.display !== 'none') {
+          this.s.display = 'none';
+       } else {
+          this.s.display = '';
+       }
+       return this;
+    },
  
-   toggle: function () {
-      if (this.e.style.display !== 'none') {
-         this.e.style.display = 'none';
-      } else {
-         this.e.style.display = '';
-      }
-      return this;
-   },
- 
-   size: function (height, width) {
-      this.e.style.height = height + 'px';
-      this.e.style.width = width + 'px';
-      return this;
-   }
+    resize: function (height, width) {
+       this.s.height = height + 'px';
+       this.s.width = width + 'px';
+       return this;
+    }
 };
