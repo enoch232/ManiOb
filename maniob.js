@@ -26,7 +26,7 @@ _.prototype = {
 	hide: function(){
 		this.s.display = 'none';
 		return this;
-	}
+	},
 	show: function(){
 		this.s.display = 'inherit';
 		return this;
@@ -34,24 +34,24 @@ _.prototype = {
 	bgcolor: function (color) {
       this.s.background = color;
       return this;
-    },
- 
-    val: function (newval) {
+  }, 
+  val: function (newval) {
       this.e.value = newval;
       return this;
-    },
-    showtoggle: function () {
-       if (this.e.style.display !== 'none') {
-          this.s.display = 'none';
-       } else {
-          this.s.display = '';
-       }
-       return this;
-    },
- 
-    resize: function (height, width) {
-       this.s.height = height + 'px';
-       this.s.width = width + 'px';
-       return this;
+  },
+  showtoggle: function () {
+    if (this.e.style.display !== 'none') {
+      this.s.display = 'none';
+    } else {
+      this.s.display = '';
     }
+      return this;
+  },
+  resize: function (height, width) {
+    this.s.height = height + 'px';
+    this.s.width = width + 'px';
+    return this;
+  },
+  css: function(attr, value){
+  }
 };
